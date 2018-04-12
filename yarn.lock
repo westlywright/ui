@@ -2640,9 +2640,9 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-ember-api-store@2.6.4:
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/ember-api-store/-/ember-api-store-2.6.4.tgz#2cecf9e4f55bc355ec5513920983324feaa738ad"
+ember-api-store@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/ember-api-store/-/ember-api-store-2.6.5.tgz#86cd80d4d6a52f52a9132f1b76b14addb67b3ebd"
   dependencies:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.8.2"
