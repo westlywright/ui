@@ -7,27 +7,30 @@ $pre-color                           : $dark-grey !default;
 $pre-border-color                    : $light-grey !default;
 
 code {
-    padding: 2px 4px;
-    font-size: 90%;
-    color: $code-color;
-    background-color: $code-bg;
-    border-radius: 1px;
-    a {
-        color: inherit;
-        text-decoration: underline;
-    }
+  padding: 2px 4px;
+  font-size: 90%;
+  color: $code-color;
+  background-color: $code-bg;
+  border-radius: 1px;
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 
 pre {
-    background-color: $dark-grey;
-    padding: 10px;
-    white-space: pre-wrap;
+  background-color: $dark-grey;
+  padding: 10px;
+  white-space: pre-wrap;
 
-    code {
-        color: $light-grey;
-        background-color: transparent;
-        padding: 0;
-    }
+  code {
+    color: $light-grey;
+    background-color: transparent;
+    padding: 0;
+  }
+  &.normal-wrap {
+
+  }
 }
 
 .bg-code {
