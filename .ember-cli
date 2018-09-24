@@ -7,6 +7,7 @@
   */
   "disableAnalytics" : true,
   "port"             : 8000,
+  "liveReloadPort"   : 9000,
   "host"             : "0.0.0.0",
   "usePods"          : true,
   "ssl"              : true
