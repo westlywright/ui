@@ -23,6 +23,7 @@ export default Route.extend(VerifyAuth, {
     // and rio dev at localhost:8004
     if ( forward ) {
       const parsed = parseUrl(forward);
+
       if ( allowedForwards.includes(parsed.hostname.toLowerCase()) ) {
         if ( get(params, 'login') ) {
           window.location.href = addQueryParams(forward, {
