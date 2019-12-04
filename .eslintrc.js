@@ -84,7 +84,7 @@ module.exports = {
     'ember/no-arrow-function-computed-properties':              'off',
     'ember/no-new-mixins':                                      'off',
     'ember/no-deeply-nested-dependent-keys-with-each':          'off',
-    'ember/no-unnecessary-route-path-option':                   'off',
+    'ember/no-unnecessary-route-path-option':                   'error',
     'ember/no-volatile-computed-properties':                    'off',
     'eqeqeq':                                                   'error',
     'generator-star-spacing':                                   'off',
