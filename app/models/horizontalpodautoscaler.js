@@ -14,39 +14,74 @@ export default Resource.extend({
 
   workload:       reference('workloadId'),
   namespace:      reference('namespaceId', 'namespace', 'clusterStore'),
-  displayMetrics: computed('metrics.@each.current.{averageValue,utilization,value}', function() {
-    return (get(this, 'metrics') || [])
-      .map((metric) => {
-        const arr = [];
-        const averageValue = get(metric, 'current.averageValue');
-        const utilization = get(metric, 'current.utilization');
-        const value = get(metric, 'current.value');
-        const targetType = get(metric, 'target.type');
 
-        if ( value ) {
-          arr.push(value);
+  mappedMetricValues: computed('metrics.@each.{name,type,current,target}', function() {
+    return (get(this, 'metrics') || []).map((metric) => {
+      const {
+        current: {
+          averageValue: currentAverageValue,
+          utilization:  currentUtilization,
+          value:        currentValue,
+        },
+        target: {
+          type:         targetType,
+          value:        targetValue,
+          averageValue: targetAverageValue,
+          utilization:  targetUtilization,
         }
-        if ( averageValue ) {
-          arr.push(averageValue);
-        }
-        if ( utilization || utilization === 0 ) {
-          arr.push(`${ utilization }%`);
-        }
+      } = metric;
 
-        switch (targetType) {
-        case VALUE:
-          arr.push(get(metric, 'target.value'));
-          break;
-        case AVERAGE_VALUE:
-          arr.push(get(metric, 'target.averageValue'));
-          break;
-        case AVERAGE_UTILIZATION:
-          arr.push(`${ get(metric, 'target.utilization') }%`);
-          break;
-        }
+      return {
+        currentAverageValue,
+        currentUtilization,
+        currentValue,
+        targetType,
+        targetValue,
+        targetAverageValue,
+        targetUtilization,
+      };
+    });
+  }),
 
-        return arr.join(' / ');
-      });
+  displayMetrics: computed('mappedMetricValues.@each.{currentAverageValue,currentUtilization,currentValue,targetType,targetValue,targetAverageValue,targetUtilization}', function() {
+    return this.mappedMetricValues.map((metric) => {
+      const arr = [];
+      const {
+        currentAverageValue,
+        currentUtilization,
+        currentValue,
+        targetType,
+        targetValue,
+        targetAverageValue,
+        targetUtilization,
+      } = metric
+
+      if ( currentValue ) {
+        arr.push(currentValue);
+      }
+
+      if ( currentAverageValue ) {
+        arr.push(currentAverageValue);
+      }
+
+      if ( currentUtilization || currentUtilization === 0 ) {
+        arr.push(`${ currentUtilization }%`);
+      }
+
+      switch (targetType) {
+      case VALUE:
+        arr.push(targetValue);
+        break;
+      case AVERAGE_VALUE:
+        arr.push(targetAverageValue);
+        break;
+      case AVERAGE_UTILIZATION:
+        arr.push(`${ targetUtilization }%`);
+        break;
+      }
+
+      return arr.join(' / ');
+    });
   }),
 
   displayMetricsString: computed('displayMetrics', function() {

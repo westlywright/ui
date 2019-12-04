@@ -83,7 +83,7 @@ module.exports = {
     'ember/require-return-from-computed':                       'off',
     'ember/no-arrow-function-computed-properties':              'off',
     'ember/no-new-mixins':                                      'off',
-    'ember/no-deeply-nested-dependent-keys-with-each':          'off',
+    'ember/no-deeply-nested-dependent-keys-with-each':          'error',
     'ember/no-unnecessary-route-path-option':                   'error',
     'ember/no-volatile-computed-properties':                    'off',
     'eqeqeq':                                                   'error',
