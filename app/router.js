@@ -278,5 +278,4 @@ Router.map(function() {
   // clearRoutes();
 });
 
-
 export default Router;
