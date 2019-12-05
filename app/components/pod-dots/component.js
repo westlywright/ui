@@ -6,6 +6,7 @@ import { filter } from 'ui/utils/search-text';
 import layout from './template';
 
 export const searchFields = ['displayName', 'id:prefix', 'displayState', 'image', 'displayIp:ip'];
+const SORT = ['sortStr'];
 
 export default Component.extend({
   layout,
@@ -14,7 +15,7 @@ export default Component.extend({
   searchText:   null,
   groupByPod:   false,
   paging:       true,
-  sort:         ['sortStr'],
+  sort:         SORT,
   searchFields,
 
   tagName: '',

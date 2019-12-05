@@ -28,6 +28,11 @@ const headers = [
   },
 ];
 
+const SEARCH_FIELDS = [
+  'displayUserLabelStrings',
+  'project.displayName',
+];
+
 export default Component.extend({
   scope: service(),
 
@@ -39,10 +44,7 @@ export default Component.extend({
   subRows:           true,
   suffix:            true,
   paging:            true,
-  extraSearchFields: [
-    'displayUserLabelStrings',
-    'project.displayName',
-  ],
+  extraSearchFields: SEARCH_FIELDS,
 
   projectsWithoutNamespace: computed('projectsWithoutNamespaces.[]', 'searchText', function() {
     const { matches } =  filter(get(this, 'projectsWithoutNamespaces').slice(), get(this, 'searchText'), ['displayName']);

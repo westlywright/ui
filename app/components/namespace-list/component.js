@@ -33,15 +33,18 @@ export const headers = [
   },
 ];
 
+const SEARCH_FIELDS = [
+  'displayUserLabelStrings',
+];
+
 export default Component.extend({
-  scope: service(),
+  scope:             service(),
 
   layout,
   sortBy:            'name',
   descending:        false,
   headers,
-  extraSearchFields: [
-    'displayUserLabelStrings',
-  ],
-  rows:       alias('model'),
+  extraSearchFields: SEARCH_FIELDS,
+
+  rows:              alias('model'),
 });

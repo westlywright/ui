@@ -1,9 +1,17 @@
 import Resource from '@rancher/ember-api-store/models/resource';
+import { set } from '@ember/object';
 
 export default Resource.extend({
   type: 'googleKubernetesEngineConfig',
 
-  reservedKeys: [],
+  reservedKeys: null,
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'reservedKeys', []);
+  },
+
 
   validationErrors() {
     let errors = [];

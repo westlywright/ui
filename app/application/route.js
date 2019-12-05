@@ -5,12 +5,12 @@ import C from 'ui/utils/constants';
 import { get, set, observer } from '@ember/object';
 
 export default Route.extend({
-  access:   service(),
-  cookies:  service(),
-  language: service('user-language'),
-  modal:    service(),
-  prefs:    service(),
-  settings: service(),
+  access:         service(),
+  cookies:        service(),
+  language:       service('user-language'),
+  modal:          service(),
+  prefs:          service(),
+  settings:       service(),
 
   previousParams: null,
   previousRoute:  null,
@@ -18,8 +18,14 @@ export default Route.extend({
   loadingId:      0,
   hideTimer:      null,
   previousLang:   null,
+  shortcuts:      null,
 
-  shortcuts: { 'shift+l': 'langToggle', },
+  init() {
+    this._super(...arguments);
+
+    set(this, 'shortcuts', { 'shift+l': 'langToggle', });
+  },
+
 
   beforeModel() {
     this.updateWindowTitle();

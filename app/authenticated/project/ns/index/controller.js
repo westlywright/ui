@@ -28,6 +28,10 @@ export const headers = [
   },
 ];
 
+const SEARCH_FIELDS = [
+  'displayUserLabelStrings',
+];
+
 export default Controller.extend({
 
   scope:             service(),
@@ -35,9 +39,7 @@ export default Controller.extend({
   session:           service(),
   sortBy:            'name',
   headers,
-  extraSearchFields: [
-    'displayUserLabelStrings',
-  ],
+  extraSearchFields: SEARCH_FIELDS,
 
   actions: {
     newNs() {

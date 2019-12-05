@@ -3,10 +3,12 @@ import Metrics from 'shared/mixins/metrics';
 import layout from './template';
 import { get, set } from '@ember/object';
 
+const FILTERS = { resourceType: 'container' };
+
 export default Component.extend(Metrics, {
   layout,
 
-  filters: { resourceType: 'container' },
+  filters: FILTERS,
 
   projectScope:  true,
 

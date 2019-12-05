@@ -1,7 +1,9 @@
 import Serializable from '@rancher/ember-api-store/mixins/serializable';
 
+const toExtend = { reservedKeys: ['session'], };
+
 // Don't serialize the injected session
-Serializable.reopen({ reservedKeys: ['session'], });
+Serializable.reopen(toExtend);
 
 export function initialize(application) {
   application.inject('controller',  'session', 'service:session');

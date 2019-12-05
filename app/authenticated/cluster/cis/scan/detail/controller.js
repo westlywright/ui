@@ -2,6 +2,34 @@ import Controller from '@ember/controller';
 import { computed, get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
+const HEADERS = [
+  {
+    name:           'collapse',
+    width:          40,
+  },
+  {
+    name:           'state',
+    sort:           ['state', 'id'],
+    translationKey: 'cis.scan.detail.table.state',
+    width:          100,
+  },
+  {
+    name:           'id',
+    sort:           ['id'],
+    translationKey: 'cis.scan.detail.table.number',
+    width:          100,
+  },
+  {
+    name:           'description',
+    sort:           ['description', 'id'],
+    translationKey: 'cis.scan.detail.table.description',
+  },
+  {
+    name:           'buttons',
+    width:          120,
+  }
+];
+
 export default Controller.extend({
   modalService:       service('modal'),
   router:             service(),
@@ -10,36 +38,10 @@ export default Controller.extend({
   intl:               service(),
   securityScanConfig: service(),
 
-  tableHeaders: [
-    {
-      name:           'collapse',
-      width:          40,
-    },
-    {
-      name:           'state',
-      sort:           ['state', 'sortableId'],
-      translationKey: 'cis.scan.detail.table.state',
-      width:          100,
-    },
-    {
-      name:           'id',
-      sort:           ['sortableId'],
-      translationKey: 'cis.scan.detail.table.number',
-      width:          100,
-    },
-    {
-      name:           'description',
-      sort:           ['description', 'sortableId'],
-      translationKey: 'cis.scan.detail.table.description',
-    },
-    {
-      name:           'buttons',
-      width:          120,
-    }
-  ],
-  sortBy: 'id',
+  tableHeaders:         HEADERS,
+  sortBy:               'id',
 
-  runningClusterScans: computed.filterBy('clusterScans', 'isRunning', true),
+  runningClusterScans:  computed.filterBy('clusterScans', 'isRunning', true),
 
   actions: {
     async runScan() {

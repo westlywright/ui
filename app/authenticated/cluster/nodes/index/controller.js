@@ -3,6 +3,11 @@ import Controller from '@ember/controller';
 import { headersCluster as hostHeaders } from 'ui/components/node-row/component';
 import { get, computed } from '@ember/object';
 
+const SEARCH_FIELDS = [
+  'displayUserLabelStrings',
+  'requireAnyLabelStrings',
+];
+
 export default Controller.extend({
   growl:        service(),
   prefs:        service(),
@@ -14,10 +19,7 @@ export default Controller.extend({
   searchText:   '',
   headers:      hostHeaders,
 
-  extraSearchFields: [
-    'displayUserLabelStrings',
-    'requireAnyLabelStrings',
-  ],
+  extraSearchFields: SEARCH_FIELDS,
 
   actions: {
     scaleDownPool(id) {

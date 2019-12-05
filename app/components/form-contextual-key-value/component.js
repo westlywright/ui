@@ -1,19 +1,28 @@
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed, get, setProperties } from '@ember/object';
 import ObjectProxy from '@ember/object/proxy';
 import StatefulPromise from 'shared/utils/stateful-promise';
 
-
-
 export default Component.extend({
-  keyContent:           [],
-  keyValuePairs:               [],
-  addButtonClass:       'btn bg-link icon-btn mt-10',
-  keyLabel:             'formKeyValue.key.label',
-  valueLabel:           'formKeyValue.value.label',
-  keyPlaceholder:       'formKeyValue.key.placeholder',
-  valuePlaceholder:     'formKeyValue.value.placeholder',
-  actions:          {
+  keyContent:       null,
+  keyValuePairs:    null,
+  addButtonClass:   'btn bg-link icon-btn mt-10',
+  keyLabel:         'formKeyValue.key.label',
+  valueLabel:       'formKeyValue.value.label',
+  keyPlaceholder:   'formKeyValue.key.placeholder',
+  valuePlaceholder: 'formKeyValue.value.placeholder',
+
+  init() {
+    this._super(...arguments);
+
+    setProperties(this, {
+      keyContent:       [],
+      keyValuePairs:    [],
+    })
+  },
+
+
+  actions: {
     onAdd() {
       const keyValuePairs = get(this, 'keyValuePairs');
 
@@ -29,9 +38,11 @@ export default Component.extend({
       get(this, 'keyValuePairs').removeAt(index);
     }
   },
+
   asyncKeyContent: computed('keyContent', function() {
     return StatefulPromise.wrap(get(this, 'keyContent'), []);
   }),
+
   selections: computed('keyValuePairs.[]', 'asyncKeyContent.value', function() {
     return this.keyValuePairs
       .slice(0, -1)
@@ -44,6 +55,7 @@ export default Component.extend({
         });
       });
   }),
+
   lastValue: computed('keyValuePairs', 'keyValuePairs.[]', {
     get() {
       return get(this, 'keyValuePairs').objectAt(get(this, 'keyValuePairs.length') - 1);
@@ -54,13 +66,16 @@ export default Component.extend({
       return value;
     }
   }),
+
   canAddMore: computed('filteredKeyContent', function() {
     return get(this, 'filteredKeyContent.length') > 1
-            || get(this, 'filteredKeyContent.length') > 0 && get(this, 'keyValuePairs.length') === 0;
+      || get(this, 'filteredKeyContent.length') > 0 && get(this, 'keyValuePairs.length') === 0;
   }),
+
   lastIndex: computed('keyValuePairs.[]', function() {
     return get(this, 'keyValuePairs.length') - 1;
   }),
+
   filteredKeyContent: computed('asyncKeyContent.value', 'keyValuePairs.@each', 'keyValuePairs.[]', 'keyValuePairs', function() {
     if (!get(this, 'keyContentFilter')) {
       return get(this, 'asyncKeyContent.value') || [];

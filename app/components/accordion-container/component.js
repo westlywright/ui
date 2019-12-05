@@ -1,6 +1,31 @@
 import Component from '@ember/component';
 import layout from './template';
 
+const HEADERS = [
+  {
+    name:           'displayState',
+    sort:           ['displayState'],
+    translationKey: 'generic.state',
+    width:          120
+  },
+  {
+    name:           'name',
+    sort:           ['name'],
+    translationKey: 'generic.name',
+  },
+  {
+    name:           'image',
+    sort:           ['image'],
+    translationKey: 'generic.image',
+  },
+  {
+    name:           'restarts',
+    sort:           ['restarts'],
+    translationKey: 'generic.restarts',
+    width:          100
+  },
+];
+
 export default Component.extend({
   layout,
   model:         null,
@@ -8,28 +33,5 @@ export default Component.extend({
   sortBy:        'displayState',
   descending:    true,
   initExpand:    true,
-  headers:       [
-    {
-      name:           'displayState',
-      sort:           ['displayState'],
-      translationKey: 'generic.state',
-      width:          120
-    },
-    {
-      name:           'name',
-      sort:           ['name'],
-      translationKey: 'generic.name',
-    },
-    {
-      name:           'image',
-      sort:           ['image'],
-      translationKey: 'generic.image',
-    },
-    {
-      name:           'restarts',
-      sort:           ['restarts'],
-      translationKey: 'generic.restarts',
-      width:          100
-    },
-  ],
+  headers:       HEADERS,
 });

@@ -40,22 +40,24 @@ export const headers = [
   },
 ];
 
-export default Controller.extend({
-  scope:             service(),
-  prefs:             service(),
+const SEARCH_FIELDS = ['id:prefix', 'displayIp:ip'];
 
-  projectController: controller('authenticated.project'),
-  queryParams:       ['sortBy'],
-  sortBy:            'name',
+export default Controller.extend({
+  scope:                service(),
+  prefs:                service(),
+
+  projectController:    controller('authenticated.project'),
+  queryParams:          ['sortBy'],
+  sortBy:               'name',
 
   headers,
-  extraSearchFields:    ['id:prefix', 'displayIp:ip'],
+  extraSearchFields:    SEARCH_FIELDS,
   extraSearchSubFields: containerSearchFields,
 
-  group:             alias('projectController.group'),
-  groupTableBy:      alias('projectController.groupTableBy'),
-  expandedInstances: alias('projectController.expandedInstances'),
-  preSorts:          alias('projectController.preSorts'),
+  group:                alias('projectController.group'),
+  groupTableBy:         alias('projectController.groupTableBy'),
+  expandedInstances:    alias('projectController.expandedInstances'),
+  preSorts:             alias('projectController.preSorts'),
 
   actions: {
     toggleExpand() {

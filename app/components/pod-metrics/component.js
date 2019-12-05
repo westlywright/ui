@@ -3,15 +3,17 @@ import Metrics from 'shared/mixins/metrics';
 import layout from './template';
 import { get, set } from '@ember/object';
 
+const FILTERS = { resourceType: 'pod' };
+
 export default Component.extend(Metrics, {
   layout,
 
-  filters: { resourceType: 'pod' },
-
-  projectScope:  true,
+  filters:      FILTERS,
+  projectScope: true,
 
   init() {
     this._super(...arguments);
+
     set(this, 'metricParams', { podName: get(this, 'resourceId') });
   },
 });

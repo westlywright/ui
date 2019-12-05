@@ -8,10 +8,17 @@ import C from 'ui/utils/constants';
 
 export default Route.extend({
   globalStore:  service(),
-  clusterStore:  service(),
+  clusterStore: service(),
   scope:        service(),
 
-  shortcuts:       { 'g': 'toggleGrouping', },
+  shortcuts:    null,
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'shortcuts', { 'g': 'toggleGrouping', });
+  },
+
   model() {
     let cluster = this.modelFor('authenticated.cluster');
 

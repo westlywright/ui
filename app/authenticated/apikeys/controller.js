@@ -3,6 +3,44 @@ import { inject as service } from '@ember/service';
 import Controller, { inject as controller } from '@ember/controller';
 import { get, computed } from '@ember/object';
 
+const HEADERS = [
+  {
+    name:           'state',
+    sort:           ['sortState', 'name', 'id'],
+    translationKey: 'apiPage.table.state',
+    width:          80,
+  },
+  {
+    name:           'name',
+    sort:           ['name', 'id'],
+    translationKey: 'apiPage.table.name',
+  },
+  {
+    name:           'description',
+    sort:           ['description', 'name', 'id'],
+    translationKey: 'apiPage.table.description',
+  },
+  {
+    name:           'scope',
+    sort:           ['scope', 'name', 'id'],
+    translationKey: 'apiPage.table.scope',
+  },
+  {
+    name:           'expires',
+    sort:           ['expiresAt', 'name', 'id'],
+    translationKey: 'apiPage.table.expires.label',
+    width:          175,
+  },
+  {
+    classNames:     'text-right pr-20',
+    name:           'created',
+    sort:           ['created', 'name', 'id'],
+    searchField:    false,
+    translationKey: 'apiPage.table.created',
+    width:          175,
+  },
+];
+
 export default Controller.extend({
   access:            service(),
   cookies:           service(),
@@ -16,43 +54,7 @@ export default Controller.extend({
   expire:            'never',
   sortBy:            'name',
 
-  headers: [
-    {
-      name:           'state',
-      sort:           ['sortState', 'name', 'id'],
-      translationKey: 'apiPage.table.state',
-      width:          80,
-    },
-    {
-      name:           'name',
-      sort:           ['name', 'id'],
-      translationKey: 'apiPage.table.name',
-    },
-    {
-      name:           'description',
-      sort:           ['description', 'name', 'id'],
-      translationKey: 'apiPage.table.description',
-    },
-    {
-      name:           'scope',
-      sort:           ['scope', 'name', 'id'],
-      translationKey: 'apiPage.table.scope',
-    },
-    {
-      name:           'expires',
-      sort:           ['expiresAt', 'name', 'id'],
-      translationKey: 'apiPage.table.expires.label',
-      width:          175,
-    },
-    {
-      classNames:     'text-right pr-20',
-      name:           'created',
-      sort:           ['created', 'name', 'id'],
-      searchField:    false,
-      translationKey: 'apiPage.table.created',
-      width:          175,
-    },
-  ],
+  headers:           HEADERS,
 
   project:     alias('scope.currentProject'),
   actions: {

@@ -28,21 +28,22 @@ export const headersWithNode = headersAll.filter((x) => x.name !== 'stats');
 export const headersWithoutHost = headersWithNode.filter((x) => x.name !== 'hostName');
 export const headersWithStats = headersAll.filter((x) => x.name !== 'hostName');
 
+const EXTRA_SEARCH_FIELDS = ['displayIp', 'primaryHost.displayName'];
+
 export default Component.extend({
-  prefs: service(),
+  prefs:             service(),
 
   layout,
-  stickyHeader: true,
+  stickyHeader:      true,
 
   showNode:          true,
   showStats:         false,
   showInstanceState: true,
   pagingLabel:       'pagination.container',
   paging:            true,
+  sortBy:            'name',
 
-  sortBy: 'name',
-
-  extraSearchFields: ['displayIp', 'primaryHost.displayName'],
+  extraSearchFields: EXTRA_SEARCH_FIELDS,
 
   headers: computed(function() {
     if ( this.get('showStats') ) {

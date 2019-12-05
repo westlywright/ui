@@ -18,13 +18,16 @@ const VALID_ROUTES = ['apps-tab', 'catalog-tab.index', 'authenticated.project.se
   'authenticated.project.hpa', 'authenticated.project.pipeline.pipelines'
 ];
 
+const SHORTCUTS = { 'g': 'toggleGrouping', };
+
 export default Route.extend(Preload, {
   access:       service(),
   scope:        service(),
   globalStore:  service(),
   modalService: service('modal'),
 
-  shortcuts: { 'g': 'toggleGrouping', },
+  shortcuts:    SHORTCUTS,
+
   model(params, transition) {
     const isPopup = this.controllerFor('application').get('isPopup');
 

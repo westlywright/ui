@@ -4,6 +4,40 @@ import { inject as service } from '@ember/service';
 import Controller, { inject as controller } from '@ember/controller';
 import { computed } from '@ember/object';
 
+const HEADERS = [
+  {
+    name:           'state',
+    sort:           ['sortState', 'name', 'id'],
+    type:           'string',
+    searchField:    'displayState',
+    translationKey: 'generic.state',
+    width:          125,
+  },
+  {
+    name:           'name',
+    sort:           ['name', 'id'],
+    translationKey: 'generic.name',
+  },
+  {
+    name:           'namespace',
+    translationKey: 'generic.namespace',
+    searchField:    'namespace.displayName',
+    sort:           ['namespace.displayName', 'name', 'id'],
+  },
+  {
+    name:           'registry',
+    translationKey: 'cruRegistry.address.label',
+    searchField:    ['displayAddress', 'searchAddresses'],
+    sort:           ['displayAddress', 'name', 'id'],
+  },
+  {
+    name:           'username',
+    translationKey: 'cruRegistry.username.label',
+    searchField:    ['firstUsername', 'searchUsernames'],
+    sort:           ['firstUsername', 'name', 'id'],
+  },
+];
+
 export default Controller.extend({
   prefs:             service(),
   scope:             service(),
@@ -11,39 +45,7 @@ export default Controller.extend({
   projectController: controller('authenticated.project'),
   queryParams:       ['sortBy'],
   sortBy:            'name',
-  headers:           [
-    {
-      name:           'state',
-      sort:           ['sortState', 'name', 'id'],
-      type:           'string',
-      searchField:    'displayState',
-      translationKey: 'generic.state',
-      width:          125,
-    },
-    {
-      name:           'name',
-      sort:           ['name', 'id'],
-      translationKey: 'generic.name',
-    },
-    {
-      name:           'namespace',
-      translationKey: 'generic.namespace',
-      searchField:    'namespace.displayName',
-      sort:           ['namespace.displayName', 'name', 'id'],
-    },
-    {
-      name:           'registry',
-      translationKey: 'cruRegistry.address.label',
-      searchField:    ['displayAddress', 'searchAddresses'],
-      sort:           ['displayAddress', 'name', 'id'],
-    },
-    {
-      name:           'username',
-      translationKey: 'cruRegistry.username.label',
-      searchField:    ['firstUsername', 'searchUsernames'],
-      sort:           ['firstUsername', 'name', 'id'],
-    },
-  ],
+  headers:           HEADERS,
 
   group:             alias('projectController.group'),
   groupTableBy:      alias('projectController.groupTableBy'),

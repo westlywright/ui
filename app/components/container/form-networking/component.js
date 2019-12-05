@@ -1,4 +1,4 @@
-import { get, set } from '@ember/object';
+import { get, set, setProperties } from '@ember/object';
 import Component from '@ember/component';
 import layout from './template';
 
@@ -6,18 +6,24 @@ export default Component.extend({
   layout,
 
   // Inputs
-  instance: null,
-  service:  null,
-  errors:   null,
-  editing:  null,
+  instance:             null,
+  service:              null,
+  errors:               null,
+  editing:              null,
 
-  initHostAliasesArray: [],
-  initOptionsArray:     [],
+  initHostAliasesArray: null,
+  initOptionsArray:     null,
 
   classNames: ['accordion-wrapper'],
 
   init() {
     this._super(...arguments);
+
+    setProperties(this, {
+      initHostAliasesArray: [],
+      initOptionsArray:     [],
+    });
+
     this.initHostAliases();
     this.initOptions();
   },

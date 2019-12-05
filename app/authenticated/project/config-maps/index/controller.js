@@ -1,5 +1,5 @@
 import { alias } from '@ember/object/computed';
-import { get, computed } from '@ember/object';
+import { get, computed, set } from '@ember/object';
 import Controller, { inject as controller } from '@ember/controller';
 
 export const headers = [
@@ -44,12 +44,19 @@ export default Controller.extend({
 
   queryParams:  ['sortBy'],
   sortBy:       'name',
-  resource:    ['configmap'],
+  resource:     null,
 
   headers,
 
   group:        alias('projectController.group'),
   groupTableBy: alias('projectController.groupTableBy'),
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'resource', ['configmap']);
+  },
+
 
   rows: computed('model.configMaps.[].type', function() {
     return get(this, 'model.configMaps').filterBy('type', 'configMap');

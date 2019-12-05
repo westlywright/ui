@@ -65,7 +65,7 @@ export default Component.extend(NewOrEdit, CatalogApp, ChildHook, {
   pastedAnswers:            null,
   noAppReadme:              null,
   selectedFileContetnt:     null,
-  editable:              { selectedTemplateUrl: null },
+  editable:                 null,
 
   isGKE:                    alias('scope.currentCluster.isGKE'),
 
@@ -75,7 +75,11 @@ export default Component.extend(NewOrEdit, CatalogApp, ChildHook, {
 
   init() {
     this._super(...arguments);
-    set(this, 'selectedTemplateModel', null);
+
+    setProperties(this, {
+      editable:              { selectedTemplateUrl: null },
+      selectedTemplateModel: null,
+    });
 
     scheduleOnce('afterRender', () => {
       if ( get(this, 'selectedTemplateUrl') ) {

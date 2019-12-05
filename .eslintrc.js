@@ -1,3 +1,5 @@
+const { DEFAULT_IGNORED_PROPERTIES } = require('eslint-plugin-ember/lib/rules/avoid-leaking-state-in-ember-objects');
+
 const propertyOrder = [
   'service',
   'controller',
@@ -61,7 +63,10 @@ module.exports = {
     'curly':                                                    'error',
     'dot-notation':                                             'off',
     'ember/alias-model-in-controller':                          'off',
-    'ember/avoid-leaking-state-in-ember-objects':               'off',
+    'ember/avoid-leaking-state-in-ember-objects':               ['error', [
+      ...DEFAULT_IGNORED_PROPERTIES,
+      'dependencies',
+    ]],
     'ember/closure-actions':                                    'off',
     'ember/jquery-ember-run':                                   'off',
     'ember/named-functions-in-promises':                        'off',

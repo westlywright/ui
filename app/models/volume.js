@@ -70,10 +70,16 @@ export function getSources(which = 'all') {
 
 var Volume = Resource.extend({
   intl:         service(),
-  reservedKeys: ['configName'],
+  reservedKeys: null,
   sources:      SOURCES,
 
   type: 'volume',
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'reservedKeys', ['configName']);
+  },
 
   configName: computed('sources.@each.{value}', function() {
     const keys = get(this, 'sources').map((x) => x.value);

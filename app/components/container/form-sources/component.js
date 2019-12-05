@@ -3,6 +3,33 @@ import Component from '@ember/component';
 import layout from './template';
 import { get, set } from '@ember/object';
 
+const HEADERS = [
+  {
+    name:           'source',
+    sort:           ['source'],
+    translationKey: 'formSources.type.label',
+    searchField:    'source',
+  },
+  {
+    name:           'sourceName',
+    sort:           ['sourceName', 'source'],
+    searchField:    'sourceName',
+    translationKey: 'formSources.source.label',
+  },
+  {
+    name:           'sourceKey',
+    sort:           ['sourceKey', 'sourceName', 'source'],
+    searchField:    'sourceKey',
+    translationKey: 'formSources.prefixOrKey.label',
+  },
+  {
+    name:           'targetKey',
+    sort:           ['targetKey', 'sourceKey', 'sourceName', 'source'],
+    searchField:    'targetKey',
+    translationKey: 'formSources.prefix.label',
+  }
+];
+
 export default Component.extend({
   intl:        service(),
   store:       service('store'),
@@ -11,32 +38,7 @@ export default Component.extend({
   statusClass: null,
   fetching:    false,
   editing:     true,
-  headers:     [
-    {
-      name:           'source',
-      sort:           ['source'],
-      translationKey: 'formSources.type.label',
-      searchField:    'source',
-    },
-    {
-      name:           'sourceName',
-      sort:           ['sourceName', 'source'],
-      searchField:    'sourceName',
-      translationKey: 'formSources.source.label',
-    },
-    {
-      name:           'sourceKey',
-      sort:           ['sourceKey', 'sourceName', 'source'],
-      searchField:    'sourceKey',
-      translationKey: 'formSources.prefixOrKey.label',
-    },
-    {
-      name:           'targetKey',
-      sort:           ['targetKey', 'sourceKey', 'sourceName', 'source'],
-      searchField:    'targetKey',
-      translationKey: 'formSources.prefix.label',
-    }
-  ],
+  headers:     HEADERS,
 
   init() {
     this._super(...arguments);

@@ -10,16 +10,16 @@
   </div>
   <div class="col span-12">
     {{#sortable-table
-       classNames="grid sortable-table"
-       sortBy=sortBy
-       headers=membersHeaders
-       stickyHeader=false
-       bulkActions=false
-       search=false
-       pagingLabel="pagination.member"
-       descending=descending
-       body=resource.members
-       as |sortable kind member dt|
+      classNames="grid sortable-table"
+      sortBy=sortBy
+      headers=membersHeaders
+      stickyHeader=false
+      bulkActions=false
+      search=false
+      pagingLabel="pagination.member"
+      descending=descending
+      body=resource.members
+      as |sortable kind member dt|
     }}
       {{#if (eq kind "row")}}
         <tr class="main-row">

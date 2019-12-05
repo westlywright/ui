@@ -1,7 +1,7 @@
 import Resource from '@rancher/ember-api-store/models/resource';
 import { reference } from '@rancher/ember-api-store/utils/denormalize';
 import DisplayImage from 'shared/mixins/display-image';
-import { get, computed } from '@ember/object';
+import { get, computed, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Grafana from 'shared/mixins/grafana';
 import { alias } from '@ember/object/computed';
@@ -14,12 +14,19 @@ var Container = Resource.extend(Grafana, DisplayImage, {
   scope:        service(),
   router:       service(),
 
-  links:        {},
+  links:        null,
   type:         'container',
 
   grafanaDashboardName: 'Pods',
   pod:                  reference('podId'),
   grafanaResourceId:    alias('name'),
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'links', []);
+  },
+
 
   podName: computed('pod.name', function() {
     return get(this, 'pod.name');

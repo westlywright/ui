@@ -9,6 +9,42 @@ import { get, set } from '@ember/object';
 
 const CHECK_AUTH_TIMER = 60 * 10 * 1000;
 
+const SHORTCUTS = {
+  // Global
+  'c':       'gotoc',
+  'u':       'gotou',
+  'shift+k': 'gotoK',
+  'shift+p': 'gotoP',
+  'shift+t': 'gotoT',
+
+  // Cluster or Proejct
+  '`':       'quake',
+  'shift+`': 'quake',
+  'm':       'gotom',
+
+  // Cluster
+  'd':       'gotod',
+  'n':       'goton',
+  'p':       'gotop',
+  'shift+v': 'gotoV',
+
+  // Project
+  'w': 'gotow',
+  'b': 'gotob',
+  's': 'gotos',
+  'h': 'gotoh',
+  'v': 'gotov',
+  'a': 'gotoa',
+
+  // Other
+  // 'g': Defined in subroutes
+  't':         'nextTab',
+  '/':         'search',
+  'shift+/':   'help',
+  'backspace': 'delete',
+  'delete':    'delete',
+};
+
 export default Route.extend(Preload, {
   access:       service(),
   globalStore:  service(),
@@ -26,41 +62,7 @@ export default Route.extend(Preload, {
 
   testTimer:    null,
 
-  shortcuts: {
-    // Global
-    'c':       'gotoc',
-    'u':       'gotou',
-    'shift+k': 'gotoK',
-    'shift+p': 'gotoP',
-    'shift+t': 'gotoT',
-
-    // Cluster or Proejct
-    '`':       'quake',
-    'shift+`': 'quake',
-    'm':       'gotom',
-
-    // Cluster
-    'd':       'gotod',
-    'n':       'goton',
-    'p':       'gotop',
-    'shift+v': 'gotoV',
-
-    // Project
-    'w': 'gotow',
-    'b': 'gotob',
-    's': 'gotos',
-    'h': 'gotoh',
-    'v': 'gotov',
-    'a': 'gotoa',
-
-    // Other
-    // 'g': Defined in subroutes
-    't':         'nextTab',
-    '/':         'search',
-    'shift+/':   'help',
-    'backspace': 'delete',
-    'delete':    'delete',
-  },
+  shortcuts:    SHORTCUTS,
 
   beforeModel() {
     set(this, 'testTimer', later(() => {

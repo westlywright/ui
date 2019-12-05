@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { computed, setProperties } from '@ember/object';
 import { searchFields as containerSearchFields } from 'ui/components/pod-dots/component';
 import { headers as configMapsHeaders } from 'ui/authenticated/project/config-maps/index/controller';
 
@@ -185,13 +185,17 @@ export default Controller.extend({
   servicesSearchText:   '',
   volumesSearchText:    '',
   sortBy:               'name',
-  extraSearchFields:    ['id:prefix', 'displayIp:ip'],
+  extraSearchFields:    null,
   extraSearchSubFields: containerSearchFields,
   expandedInstances:    null,
 
   init() {
     this._super(...arguments);
-    this.set('expandedInstances', []);
+
+    setProperties(this, {
+      extraSearchFields: ['id: prefix', 'displayIp: ip'],
+      expandedInstances: [],
+    });
   },
 
   actions: {
