@@ -114,7 +114,7 @@
     {{/each}}
   {{else}}
     <tbody>
-      {{#each pagedContent as |row|}}
+      {{#each pagedContent.content as |row|}}
         {{yield this "row" row dt (array-includes childFilterNodes row.id)}}
       {{else}}
         {{yield this (if arranged.length "nomatch" "norows")}}
