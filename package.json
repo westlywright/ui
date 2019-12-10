@@ -58,7 +58,6 @@
     "ember-cli-uglify": "^3.0.0",
     "ember-concurrency": "^1.1.3",
     "ember-copy": "^1.0.0",
-    "ember-credit-card": "^2.4.0",
     "ember-deep-set": "^0.2.0",
     "ember-drag-drop": "^0.4.7",
     "ember-engines": "^0.8.3",
@@ -77,6 +76,7 @@
     "ember-wormhole": "0.5.5",
     "eslint-plugin-ember": "^7.1.0",
     "eslint-plugin-node": "^10.0.0",
+    "eslint-utils": "^1.4.2",
     "express": "^4.8.5",
     "file-saver": "^1.3.8",
     "forever-agent": "^0.6.1",
@@ -109,10 +109,7 @@
   },
   "dependencies": {
     "dompurify": "^2.0.7",
-    "mysql": "^2.15.0",
-    "request": "^2.83.0",
-    "sendgrid": "^4.7.1",
-    "stripe": "^4.15.0"
+    "request": "^2.83.0"
   },
   "resolutions": {
     "braces": ">=2.3.1",
