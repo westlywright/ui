@@ -16,32 +16,42 @@ export default Resource.extend({
     return;
   }),
 
-  displayType: computed('principal.{id}', function() {
-    let principal = get(this, 'principal');
-    let type      = null;
+  displayType: computed('principal.{id}', {
+    get() {
+      let principal = get(this, 'principal');
+      let type      = null;
 
-    if (principal && get(principal, 'displayType')) {
-      type = get(principal, 'displayType');
-    } else if (principal && get(principal, 'principalType')) {
-      type = get(this, 'principalType');
+      if (principal && get(principal, 'displayType')) {
+        type = get(principal, 'displayType');
+      } else if (principal && get(principal, 'principalType')) {
+        type = get(this, 'principalType');
+      }
+
+      return type;
+    },
+    set(key, value) {
+      return value;
     }
-
-    return type;
   }),
 
-  displayName: computed('principal.{id}', function() {
-    let principal = get(this, 'principal');
-    let name      = null;
+  displayName: computed('principal.{id}', {
+    get() {
+      let principal = get(this, 'principal');
+      let name      = null;
 
-    if (principal && get(principal, 'displayName')) {
-      name = get(principal, 'displayName');
-    } else if (get(this, 'userPrincipalId')) {
-      name = get(this, 'userPrincipalId');
-    } else if (get(this, 'groupPrincipalId')) {
-      name = get(this, 'groupPrincipalId');
+      if (principal && get(principal, 'displayName')) {
+        name = get(principal, 'displayName');
+      } else if (get(this, 'userPrincipalId')) {
+        name = get(this, 'userPrincipalId');
+      } else if (get(this, 'groupPrincipalId')) {
+        name = get(this, 'groupPrincipalId');
+      }
+
+      return name;
+    },
+    set(key, value) {
+      return value;
     }
-
-    return name;
   }),
 
 });

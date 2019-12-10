@@ -81,54 +81,59 @@ var Principal = Resource.extend({
     }
   }),
 
-  displayType: computed('parsedExternalType', 'intl.locale', function() {
-    let key = 'model.identity.displayType.unknown';
-    let type = get(this, 'parsedExternalType');
+  displayType: computed('parsedExternalType', 'intl.locale', {
+    get() {
+      let key = 'model.identity.displayType.unknown';
+      let type = get(this, 'parsedExternalType');
 
-    switch ( type ) {
-    case C.PROJECT.TYPE_ACTIVE_DIRECTORY_USER:
-    case C.PROJECT.TYPE_ADFS_USER:
-    case C.PROJECT.TYPE_OKTA_USER:
-    case C.PROJECT.TYPE_AZURE_USER:
-    case C.PROJECT.TYPE_FREEIPA_USER:
-    case C.PROJECT.TYPE_GITHUB_USER:
-    case C.PROJECT.TYPE_GOOGLE_USER:
-    case C.PROJECT.TYPE_KEYCLOAK_USER:
-    case C.PROJECT.TYPE_LDAP_USER:
-    case C.PROJECT.TYPE_OPENLDAP_USER:
-    case C.PROJECT.TYPE_PING_USER:
-    case C.PROJECT.TYPE_SHIBBOLETH_USER:
-      key = 'model.identity.displayType.user';
-      break;
+      switch ( type ) {
+      case C.PROJECT.TYPE_ACTIVE_DIRECTORY_USER:
+      case C.PROJECT.TYPE_ADFS_USER:
+      case C.PROJECT.TYPE_OKTA_USER:
+      case C.PROJECT.TYPE_AZURE_USER:
+      case C.PROJECT.TYPE_FREEIPA_USER:
+      case C.PROJECT.TYPE_GITHUB_USER:
+      case C.PROJECT.TYPE_GOOGLE_USER:
+      case C.PROJECT.TYPE_KEYCLOAK_USER:
+      case C.PROJECT.TYPE_LDAP_USER:
+      case C.PROJECT.TYPE_OPENLDAP_USER:
+      case C.PROJECT.TYPE_PING_USER:
+      case C.PROJECT.TYPE_SHIBBOLETH_USER:
+        key = 'model.identity.displayType.user';
+        break;
 
-    case C.PROJECT.TYPE_ACTIVE_DIRECTORY_GROUP:
-    case C.PROJECT.TYPE_ADFS_GROUP:
-    case C.PROJECT.TYPE_OKTA_GROUP:
-    case C.PROJECT.TYPE_AZURE_GROUP:
-    case C.PROJECT.TYPE_FREEIPA_GROUP:
-    case C.PROJECT.TYPE_KEYCLOAK_GROUP:
-    case C.PROJECT.TYPE_LDAP_GROUP:
-    case C.PROJECT.TYPE_OPENLDAP_GROUP:
-    case C.PROJECT.TYPE_PING_GROUP:
-    case C.PROJECT.TYPE_SHIBBOLETH_GROUP:
-    case C.PROJECT.TYPE_GOOGLE_GROUP:
-      key = 'model.identity.displayType.group';
-      break;
+      case C.PROJECT.TYPE_ACTIVE_DIRECTORY_GROUP:
+      case C.PROJECT.TYPE_ADFS_GROUP:
+      case C.PROJECT.TYPE_OKTA_GROUP:
+      case C.PROJECT.TYPE_AZURE_GROUP:
+      case C.PROJECT.TYPE_FREEIPA_GROUP:
+      case C.PROJECT.TYPE_KEYCLOAK_GROUP:
+      case C.PROJECT.TYPE_LDAP_GROUP:
+      case C.PROJECT.TYPE_OPENLDAP_GROUP:
+      case C.PROJECT.TYPE_PING_GROUP:
+      case C.PROJECT.TYPE_SHIBBOLETH_GROUP:
+      case C.PROJECT.TYPE_GOOGLE_GROUP:
+        key = 'model.identity.displayType.group';
+        break;
 
-    case C.PROJECT.TYPE_GITHUB_TEAM:
-      key = 'model.identity.displayType.team';
-      break;
+      case C.PROJECT.TYPE_GITHUB_TEAM:
+        key = 'model.identity.displayType.team';
+        break;
 
-    case C.PROJECT.TYPE_GITHUB_ORG:
-      key = 'model.identity.displayType.org';
-      break;
+      case C.PROJECT.TYPE_GITHUB_ORG:
+        key = 'model.identity.displayType.org';
+        break;
 
-    case C.PROJECT.TYPE_RANCHER:
-      key = 'model.identity.displayType.localUser';
-      break;
+      case C.PROJECT.TYPE_RANCHER:
+        key = 'model.identity.displayType.localUser';
+        break;
+      }
+
+      return get(this, 'intl').t(key, { type });
+    },
+    set(key, value) {
+      return value;
     }
-
-    return get(this, 'intl').t(key, { type });
   }),
 });
 
