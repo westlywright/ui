@@ -17,19 +17,18 @@ export default Resource.extend({
 
   mappedMetricValues: computed('metrics.@each.{name,type,current,target}', function() {
     return (get(this, 'metrics') || []).map((metric) => {
+      const { current = {}, target = {} } = metric;
       const {
-        current: {
-          averageValue: currentAverageValue,
-          utilization:  currentUtilization,
-          value:        currentValue,
-        },
-        target: {
-          type:         targetType,
-          value:        targetValue,
-          averageValue: targetAverageValue,
-          utilization:  targetUtilization,
-        }
-      } = metric;
+        averageValue: currentAverageValue,
+        utilization:  currentUtilization,
+        value:        currentValue,
+      } = current;
+      const {
+        type:         targetType,
+        value:        targetValue,
+        averageValue: targetAverageValue,
+        utilization:  targetUtilization,
+      } = target;
 
       return {
         currentAverageValue,
