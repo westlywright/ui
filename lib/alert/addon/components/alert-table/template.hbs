@@ -55,11 +55,11 @@
       <tbody class="fixed grid group">
         {{#each groupsWithoutAlerts as |group|}}
           {{alert/alert-group
-              model=group
-              noAlerts=true
-              fullColspan=sortable.fullColspan
-              groups=groups
-              hasOtherGroups=(not-eq groupsWithoutAlerts.length groups.length)
+            model=group
+            noAlerts=true
+            fullColspan=sortable.fullColspan
+            groups=groups
+            hasOtherGroups=(not-eq groupsWithoutAlerts.length groups.length)
           }}
         {{/each}}
       </tbody>
