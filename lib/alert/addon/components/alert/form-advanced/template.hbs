@@ -2,17 +2,17 @@
   <div class="box">
     {{#if (eq level "rule")}}
       <div class="row">
-        <label class="acc-label">{{t 'alertPage.newOrEdit.inherited.label'}}</label>
+        <label class="acc-label">{{t "alertPage.newOrEdit.inherited.label"}}</label>
         <div class="radio">
           <label>
             {{radio-button selection=model.inherited value=true}}
-            {{t 'alertPage.newOrEdit.inherited.enabled'}}
+            {{t "alertPage.newOrEdit.inherited.enabled"}}
           </label>
         </div>
         <div class="radio">
           <label>
             {{radio-button selection=model.inherited value=false}}
-            {{t 'generic.disabled'}}
+            {{t "generic.disabled"}}
           </label>
         </div>
       </div>

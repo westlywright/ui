@@ -1,14 +1,14 @@
 <section class="header has-tabs clearfix p-0">
   <ul class="tab-nav">
     <li>
-      {{#link-to "custom-drivers.cluster-drivers"}}{{t 'customDrivers.clusters'}}{{/link-to}}
+      {{#link-to "custom-drivers.cluster-drivers"}}{{t "customDrivers.clusters"}}{{/link-to}}
     </li>
     <li>
-      {{#link-to "custom-drivers.node-drivers"}}{{t 'customDrivers.nodes'}}{{/link-to}}
+      {{#link-to "custom-drivers.node-drivers"}}{{t "customDrivers.nodes"}}{{/link-to}}
     </li>
   </ul>
   <div class="right-buttons">
-    <button disabled={{rbac-prevents resource="nodedriver" scope="global" permission="create"}} class="btn btn-sm bg-primary right-divider-btn" {{action 'addNewDriver'}}>{{t 'machinePage.add'}}</button>
+    <button disabled={{rbac-prevents resource="nodedriver" scope="global" permission="create"}} class="btn btn-sm bg-primary right-divider-btn" {{action "addNewDriver"}}>{{t "machinePage.add"}}</button>
   </div>
 </section>
 
@@ -35,7 +35,7 @@
         {{driver.displayName}}
         <div class="clip text-small">
           {{#if driver.builtin}}
-            <span class="text-muted">{{t 'machinePage.builtin'}}</span>
+            <span class="text-muted">{{t "machinePage.builtin"}}</span>
           {{else}}
             {{driver.url}}
           {{/if}}
@@ -51,8 +51,8 @@
       {{error-sub-row fullColspan=sortable.fullColspan model=driver}}
     {{/if}}
   {{else if (eq kind "nomatch")}}
-    <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t 'nodesPage.table.noMatch'}}</td></tr>
+    <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t "nodesPage.table.noMatch"}}</td></tr>
   {{else if (eq kind "norows")}}
-    <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t 'nodesPage.table.noData'}}</td></tr>
+    <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t "nodesPage.table.noData"}}</td></tr>
   {{/if}}
 {{/sortable-table}}

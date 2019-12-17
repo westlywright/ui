@@ -55,9 +55,9 @@
       <tbody>
         {{#each ports as |port|}}
           <tr>
-            <td data-title="{{t 'formServicePorts.name.label'}}">
+            <td data-title="{{t "formServicePorts.name.label"}}">
               {{#if editing}}
-                {{input class="form-control input-sm public" value=port.name placeholder=(t 'formServicePorts.name.placeholder')}}
+                {{input class="form-control input-sm public" value=port.name placeholder=(t "formServicePorts.name.placeholder")}}
               {{else}}
                 {{port.name}}
               {{/if}}

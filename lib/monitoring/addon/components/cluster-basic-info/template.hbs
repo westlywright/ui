@@ -1,24 +1,24 @@
 <div class="row banner bg-info basics">
   <div class="vertical-middle">
-    <label class="acc-label vertical-middle p-0">{{t 'clustersPage.provider.label'}}:</label>
+    <label class="acc-label vertical-middle p-0">{{t "clustersPage.provider.label"}}:</label>
     <span>{{cluster.displayProvider}}</span>
   </div>
 
   <div class="vertical-middle">
-    <label class="acc-label vertical-middle p-0">{{t 'clustersPage.kubernetesVersion.label'}}:</label>
+    <label class="acc-label vertical-middle p-0">{{t "clustersPage.kubernetesVersion.label"}}:</label>
     <span>{{cluster.version.gitVersion}}</span>
   </div>
 
   {{#if cluster.clusterTemplateId}}
     <div class="vertical-middle">
-      <label class="acc-label vertical-middle p-0">{{t 'clustersPage.rkeTemplate.label'}}:</label>
+      <label class="acc-label vertical-middle p-0">{{t "clustersPage.rkeTemplate.label"}}:</label>
       <span>{{cluster.clusterTemplateDisplayName}}/{{cluster.clusterTemplateRevisionDisplayName}}</span>
       {{cluster-template-revision-upgrade-notification cluster=cluster}}
     </div>
   {{/if}}
 
   <div class="vertical-middle">
-    <label class="acc-label vertical-middle p-0">{{t 'generic.created'}}:</label>
+    <label class="acc-label vertical-middle p-0">{{t "generic.created"}}:</label>
     <span>{{date-calendar cluster.created}}</span>
   </div>
 </div>

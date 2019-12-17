@@ -1,7 +1,7 @@
 <section class="header clearfix">
   <div class="pull-left">
     <h1 class="vertical-middle">
-      {{t 'hostsPage.hostPage.header.title' name=model.node.displayName}}{{copy-to-clipboard clipboardText=model.node.displayName size="small"}}
+      {{t "hostsPage.hostPage.header.title" name=model.node.displayName}}{{copy-to-clipboard clipboardText=model.node.displayName size="small"}}
     </h1>
     {{#each model.node.displayRoles as |role|}}
       <span class="badge badge-xs vertical-middle bg-info">
@@ -16,7 +16,7 @@
 </section>
 
 {{#if model.node.description}}
-  {{banner-message color='bg-secondary mb-0 mt-10' message=(linkify model.node.description)}}
+  {{banner-message color="bg-secondary mb-0 mt-10" message=(linkify model.node.description)}}
 {{/if}}
 
 {{node-dashboard model=model}}

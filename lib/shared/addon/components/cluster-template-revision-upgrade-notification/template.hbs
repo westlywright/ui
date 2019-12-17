@@ -1,7 +1,7 @@
 {{#if cluster.isClusterTemplateUpgradeAvailable}}
   {{#tooltip-element
     type="tooltip-basic"
-    model=(t 'clusterTemplateRevisionUpgradeNotification.tooltip' revision=cluster.clusterTemplate.latestRevision.displayName)
+    model=(t "clusterTemplateRevisionUpgradeNotification.tooltip" revision=cluster.clusterTemplate.latestRevision.displayName)
     tooltipTemplate="tooltip-static"
     inlineBlock=true
   }}

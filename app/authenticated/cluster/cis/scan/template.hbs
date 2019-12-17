@@ -1,5 +1,5 @@
 <section class="header clearfix">
-  <h1>{{t 'cis.scan.header'}}</h1>
+  <h1>{{t "cis.scan.header"}}</h1>
 </section>
 {{#if isRKE}}
   <section>
@@ -20,11 +20,11 @@
         <Cluster::Cis::Scan::TableRow @model={{scan}} />
       {{else if (eq kind "norows")}}
         <tr>
-          <td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t 'cis.scan.table.empty'}}</td>
+          <td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t "cis.scan.table.empty"}}</td>
         </tr>
       {{else if (eq kind "right-actions")}}
         <button style="margin-left: -5px;" class="btn btn-sm bg-primary pl-40 pr-40" {{action "runScan"}} disabled={{disableRunScanButton}}>
-          {{t 'cis.scan.actions.runScan'}}
+          {{t "cis.scan.actions.runScan"}}
         </button>
       {{/if}}
     {{/sortable-table}}
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="banner bg-info">
       <div class="banner-icon"><i class="icon icon-info"></i></div>
-      <div class="banner-message pt-10 pb-10">{{t 'cis.scan.rkeOnly'}}</div>
+      <div class="banner-message pt-10 pb-10">{{t "cis.scan.rkeOnly"}}</div>
     </div>
   </div>
 {{/if}}

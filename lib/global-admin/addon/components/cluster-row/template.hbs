@@ -15,7 +15,7 @@
     {{#if (and model.displayWarnings.length (not-eq model.state "waiting") (not-eq model.state "provisioning"))}}
       {{#tooltip-element
           type="tooltip-basic"
-          tooltipTemplate='tooltip-multi-lines'
+          tooltipTemplate="tooltip-multi-lines"
           model=model.displayWarnings
           inlineBlock=true
       }}

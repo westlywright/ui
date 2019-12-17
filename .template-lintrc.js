@@ -29,7 +29,7 @@ module.exports = {
     'no-unbound':                 false,
     'no-unnecessary-concat':      false,
     'no-unused-block-params':     false,
-    'quotes':                     false,
+    'quotes':                     'double',
     'self-closing-void-elements': false,
     'simple-unless':              false,
     'style-concatenation':        false,

@@ -1,10 +1,10 @@
 {{#accordion-list-item
-     title=(t 'validationsList.title')
-     detail=(t 'validationsList.detail' resourceType=resourceType)
+     title=(t "validationsList.title")
+     detail=(t "validationsList.detail" resourceType=resourceType)
      expandAll=expandAll
      expand=(action expandFn)
      expanded=expanded
-     componentName='sortable-table'
+     componentName="sortable-table"
      as | parent |
 }}
   {{#if (and expanded noPermission)}}
@@ -43,7 +43,7 @@
             colspan="{{sortable.fullColspan}}"
             class="text-center text-muted pt-20 pb-20"
           >
-            {{t 'validationsList.noData'}}
+            {{t "validationsList.noData"}}
           </td>
         </tr>
       {{else if (eq kind "nomatch")}}
@@ -52,7 +52,7 @@
             colspan="{{sortable.fullColspan}}"
             class="text-center text-muted pt-20 pb-20"
           >
-            {{t 'validationsList.noMatch'}}
+            {{t "validationsList.noMatch"}}
           </td>
         </tr>
       {{/if}}
