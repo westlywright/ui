@@ -4,11 +4,11 @@
     <div class="text-cell">{{title}}</div>
     {{#if notRun}}
       <div class="text-cell">
-        <i class="icon" class={{pipeline-status-to-icon status}}></i>&nbsp;
+        <i class="icon {{pipeline-status-to-icon status}}"></i>&nbsp;
       </div>
     {{else}}
       <div class="text-cell">
-        <i class="icon" class={{pipeline-status-to-icon status}}></i>&nbsp;{{status}}
+        <i class="icon {{pipeline-status-to-icon status}}"></i>&nbsp;{{status}}
       </div>
     {{/if}}
   </div>

@@ -19,20 +19,24 @@
 
 {{#each ary as |file|}}
   {{#input-text-file
-       classNames="box"
-       accept=accept
-       classNames="mb-20"
-       name=file.name
-       inputName=true
-       namePlaceholder=namePlaceholder
-       canChangeName=true
-       shouldChangeName=(not file.uploaded)
-       canUpload=false
-       value=file.value
-       placeholder=valuePlaceholder
+     classNames="box mb-20"
+     accept=accept
+     name=file.name
+     inputName=true
+     namePlaceholder=namePlaceholder
+     canChangeName=true
+     shouldChangeName=(not file.uploaded)
+     canUpload=false
+     value=file.value
+     placeholder=valuePlaceholder
   }}
     <button class="btn bg-primary" {{action "remove" file}}><i class="icon icon-minus"></i></button>
   {{/input-text-file}}
 {{/each}}
 
-<input type="file" class="input-files" multiple=true accept="{{actualAccept}}" class="hide">
+<input
+  type="file"
+  class="input-files hide"
+  multiple=true
+  accept="{{actualAccept}}"
+>

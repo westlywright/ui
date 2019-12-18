@@ -165,16 +165,15 @@
 
   {{#unless isSidekick}}
     {{container/form-scheduling
-      isGlobal=isGlobal
-      initialHostId=service.scheduling.node.nodeId
-      service=service
-      scheduling=service.scheduling
-      errors=schedulingErrors
       editing=true
-      expandAll=null
-      setRequestedHost=(action "setRequestedHostId")
+      errors=schedulingErrors
       expandAll=al.expandAll
       expandFn=expandFn
+      initialHostId=service.scheduling.node.nodeId
+      isGlobal=isGlobal
+      scheduling=service.scheduling
+      service=service
+      setRequestedHost=(action "setRequestedHostId")
     }}
   {{/unless}}
 

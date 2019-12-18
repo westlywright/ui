@@ -28,7 +28,7 @@
   <div class="row">
     <div class="col span-6 mt-0">
       <label class="acc-label pt-5">{{t "loggingPage.ssl.saslType.label"}}</label>
-      <div class="radio" class={{if (or disabled) "text-muted"}}>
+      <div class="radio {{if (or disabled) "text-muted"}}" >
         <label class={{if disabled "text-muted"}}>
           {{radio-button
               selection=config.saslType

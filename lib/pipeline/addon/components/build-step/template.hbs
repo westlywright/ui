@@ -2,7 +2,7 @@
   <div class="title">
     <div class="text-cell">{{pipeline-stages-info stageInfo stageIndex stepIndex true}}</div>
     <div class="text-cell">
-      <i class="icon" class={{pipeline-status-to-icon step.state}}></i>&nbsp;
+      <i class="icon {{pipeline-status-to-icon step.state}}" ></i>&nbsp;
       {{#unless notRun}}
         {{step.state}}
       {{/unless}}

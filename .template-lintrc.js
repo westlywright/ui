@@ -80,7 +80,7 @@ module.exports = {
       '"',
     ],
     'no-debugger':                false,
-    'no-duplicate-attributes':    false,
+    'no-duplicate-attributes':    true,
     'no-html-comments':           false,
     'no-inline-styles':           false,
     'no-input-block':             false,
