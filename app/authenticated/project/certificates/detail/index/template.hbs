@@ -26,7 +26,7 @@
             <hr class="mt-15 mb-15"/>
             <div class="force-wrap">
               <label class="text-muted">{{t "certificatesPage.algorithm"}}:</label>
-              <div>{{model.algorithm}}{{#if model.keySize}} - {{model.keySize}} bits{{/if}}</div>
+              <div>{{model.algorithm}}{{#if model.keySize}} - {{model.keySize}} {{t "generic.bits"}}{{/if}}</div>
             </div>
 
             <hr class="mt-15 mb-15"/>
@@ -65,7 +65,7 @@
               <ul class="list-unstyled">
                 {{#if (or model.cn model.displaySans.length)}}
                   {{#if model.cn}}
-                    <li>{{link-ssl-domain model.cn}} (CN)</li>
+                    <li>{{link-ssl-domain model.cn}} {{t "certificatesPage.cnAddon"}}</li>
                   {{/if}}
                   {{#each model.displaySans as |san|}}
                     <li>{{link-ssl-domain san}}</li>

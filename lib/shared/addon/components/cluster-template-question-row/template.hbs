@@ -71,7 +71,7 @@
         classNames="form-control"
       }}
     {{else if (eq question.type "boolean")}}
-      Reference
+      {{t "generic.reference"}}
     {{else}}
       {{schema/input-multiline
         value=question.default

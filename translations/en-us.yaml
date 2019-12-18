@@ -15,6 +15,7 @@ generic:
   application: application
   as: as
   back: Back
+  bits: bits
   cancel: Cancel
   closeModal: Close
   cluster: Cluster
@@ -98,6 +99,7 @@ generic:
   persistentVolume: persistent volume
   random: Random
   remove: Remove
+  reference: Reference
   restarts: Restarts
   role: Role
   save: Save
@@ -120,6 +122,8 @@ generic:
   total: Total
   true: 'True'
   type: Type
+  tcp: TCP
+  udp: UDP
   unknown: Unknown
   unknownUser: Unable to fetch user info
   upload: Upload
@@ -148,6 +152,7 @@ generic:
   registry: Registry
   imageName: Image Name
   loginIn: Login in
+  logo: logo
   logout: Log Out User {user}
   pipeline: Pipeline
   is: is
@@ -481,6 +486,8 @@ rolesPage:
   editRole: Edit Role
   saveEdit: Edit
   saveNew: Create
+  row:
+    nonResource: "Non-Resource URL"
   new:
     errors:
       nameReq: Name is required.
@@ -603,6 +610,7 @@ authPage:
       clientSecret:
         labelText: Secret
   bitbucketcloud:
+    header: "bitbucket.org"
     target:
       header: '1. Choose the Bitbucket type you want to use'
       bitbucketserver: 'Use private Bitbucket Server setup'
@@ -819,6 +827,7 @@ authPage:
         enterpriseHost:
           labelText: Enterprise Host
           placeholder: 'e.g. github.example.com'
+          protocol: "https://"
     testAuth:
       header: '3. Test and enable authentication'
       subtext: 'Check that your application is configured correctly by testing authentication with it:'
@@ -912,6 +921,7 @@ authPage:
     configure:
       header: 'Configure Azure AD Account'
       replyUrl: "Azure AD requires a whitelisted URL for your {appName} server before beginning this setup. Please ensure that the following URL is set in the Reply URL section of your Azure Portal. Please note that is may take up to 5 minutes for the whitelisted URL to propagate."
+      replyUrlLabel: Reply URL
       help: Enter the Tenant ID, Client ID, and Admin user details to connect to your Azure AD auth account.
       applicationId:
         label: Application ID
@@ -1194,6 +1204,7 @@ clusterIstioPage:
 
 certificatesPage:
   cn: Domain Name
+  cnAddon: "(CN)"
   expiresDate: Expires
   fingerprint: Fingerprint
   valid: Valid Beginning
@@ -1376,6 +1387,7 @@ clustersPage:
 
 clusterRibbonNav:
   title: Recent Clusters
+  all: All Providers
 
 clusterTemplatesPage:
   index:
@@ -2230,6 +2242,7 @@ failWhalePage:
   reloadButton: |
     <a href="#" onclick="window.location.href = window.location.href; return false;">Reload</a> to try again or
   logoutButton: log out
+  reloadText: Reload
 
 time:
   now: Now
@@ -2260,6 +2273,76 @@ haPage:
     port: Port
     heartbeat: Last Seen
     clustered: Clustered
+
+helpPage:
+  header: Helpful links & Information
+  banner: 'Latest Release {released}:'
+  offline: "Looks like you're offline. Please go online to see content from the forums."
+  environment:
+    header: What is an environment?
+    content: |
+      <p>{appName} supports grouping resources into multiple environments. Each one gets its own set of services and infrastructure resources, and is owned by one or more GitHub users, teams or organizations.</p>
+        <p>For example, you might create separate "dev", "test", and "production" environments to keep things isolated from each other, and give "dev" access to your entire organization but restrict the "production" environment to a smaller team.</p>
+    manageLink: Manage Environments
+  host:
+    header: What is a host?
+    content: |
+      Before adding your first service or launching a container, you must add at least a single Linux host that supports Docker {minVersion} or higher and be able to reach the {appName} server via HTTP. {appName} supports adding Linux hosts in the form of a virtual or physical
+          machine from any public cloud providers, privately hosted clouds, or even bare metal servers.
+    contentLink: Learn More
+    addHostLink: Add Host
+  stacks:
+    header: What are stacks and services?
+    content:
+      paragraph1: |
+        A service is simply a group of containers created from the same Docker image but extends Docker's "link" concept to leverage {appName}'s lightweight distributed DNS service for service discovery. Services can be added individually or by deploying an item from the Catalog.
+      paragraph2: A service is also capable of leveraging other {appName} built-in services such as load balancers, health monitoring, upgrade support, and high availability.
+      #' fixes syntax highlighting so i dont go crazy
+      link: Learn More
+    addServiceLink: Manage Services
+    addCatalogLink: Add From Catalog
+    noHosts: You currently have no hosts. Please add a host before adding Services.
+    manageServiceLink: Manage Services
+  issues:
+    header:
+      text: Issues & Documentation
+      tagline: Uh oh, Find an issue?
+      fileBug: File a Bug
+    content:
+      paragraph1: |
+        {appName} is an open source software platform that implements a purpose-built infrastructure for running containers in production. Docker containers, as an increasingly popular application workload, create new requirements in infrastructure services such as networking, storage, load balancer, security, service discovery, and resource management.
+      graphic1:
+        text: Find a bug?
+        link: File an issue on GitHub.
+      graphic2:
+        text: For more information
+        link: |
+          <a href="{docsLink}" target="_blank">about using {appName} Visit our docs.</a>
+          <br/>or <a href="{companyLink}/learn/" target="_blank">check out our getting started documentation.</a>
+      graphic3:
+        text: Need help troubleshooting?
+        link: Check out our FAQs
+  forums:
+    header: From the Forums
+    tagline: Join the conversation
+    buttonText: On the forums
+    announcements:
+      header: Announcements
+      buttonText: View More Annoucement Topics
+    general:
+      header: General
+      buttonText: View More General Topics
+    rancherOs:
+      header: RancherOS
+      buttonText: View More RancherOS Topics
+    rancher:
+      header: Rancher
+      buttonText: View More Rancher Topics
+  commercial:
+    header: Commercial Support
+    content: |
+      At Rancher Labs we provide commercial, enterprise-grade support for {appName}, including an available 24x7 support team, and priority bug fixes.  In addition we provide implementation, integration and consulting services for organizations looking to implement and scale {appName}.  For more information on any of these services, please email our sales team: <a href="mailto:sales@rancher.com">sales@rancher.com</a>
+
 
 nodesPage:
   header: Nodes
@@ -2470,6 +2553,7 @@ machinePage:
 notFoundPage:
   header: "The page you were looking for doesn't exist!"
   linkTo: Go Home
+  code: "404"
 
 projectIstioPage:
   info:
@@ -3024,6 +3108,10 @@ servicePartial:
 ##############################
 # Components
 ##############################
+
+accordion:
+  openButton: Open accordion
+
 accordionRow:
   status:
     none: None
@@ -3571,6 +3659,7 @@ clusterNew:
       placeholder: e.g. 120
     masterNum:
       label: Master Nodes Count
+      detail: 3
       help: The count of master nodes will be launched in this Kubernetes cluster
     numOfNodes:
       label: Worker Nodes Count
@@ -6198,6 +6287,8 @@ formHealthCheck:
   path:
     label: Request Path
     placeholder: e.g. /healthcheck
+    protocol: GET
+    transfer: "HTTP/1.1"
   httpHeaders:
     label: Additional Headers
     addActionLabel: Add Header
@@ -6770,6 +6861,7 @@ formJobConfig:
 formUpgrade:
   title: Scaling/Upgrade Policy
   detail: Configure how pods are replaced when performing an upgrade.
+  comingSoon: "Coming Soon..."
   strategy:
     label: Upgrade Strategy
     orderedReady: Strict serial update in order and wait for readiness
@@ -7112,6 +7204,7 @@ labelsSection:
 
 loginShibboleth:
   buttonText: Log In with Shibboleth
+  logout: IDP Logout
 
 loginGithub:
   buttonText: Log In with GitHub
@@ -7221,6 +7314,10 @@ loggingPage:
       prefix: Prefix
       prefixPlaceholder: e.g. logstash
       dateFormat: 'Date Format:'
+      date:
+        yearMonthDay: "YYYY-MM-DD"
+        yearMonth: "YYYY-MM"
+        year: "YYYY"
       errors:
         startsWith: Prefix cannot start with -, _, +
         required: Prefix is required
@@ -7266,6 +7363,7 @@ loggingPage:
       zookeeper:
         placeholder: 'e.g. https://192.168.1.10:2181'
   syslog:
+    logSeverityLabel: Log Severity
     endpointPlaceholder: 'e.g. 192.168.1.10:514'
     header: Syslog Configuration
     endpointHelpText: Input your Syslog endpoint, SSL certificates configuration will show up when select TCP.
@@ -7519,6 +7617,8 @@ modalAddCloudKey:
     secretKey:
       label: Secret Key
       placeholder: Your AWS secret key
+    region:
+      select: Select a Region
   azure:
     clientId:
       label: Client ID
@@ -7947,6 +8047,7 @@ newMultiClusterApp:
       placeholder: Select a question
     answerOverride:
       placeholder: Question required
+      subquestion: Select parent question scope
   roles:
     title: Application Access Roles
     detail: Select a role to assign this app given this app the selected access.
@@ -8058,6 +8159,7 @@ clusterDrivers:
   add: Add Cluster Driver
   refresh: Refresh Kubernetes Metadata
   builtIn: Built-In
+  ariaLabel: Remove Recent
   table:
     noData: This cluster does not have any nodes defined
     noMatch: No nodes match the current search
@@ -8366,6 +8468,7 @@ nodeDriver:
     loginAction: "Next: Authenticate & select an instance"
     authentication: Authenticating
     location: Location
+    pricePerHour: "(${price}/hr)"
     planDetails:
       label: Instance Details
       cpu: CPUs
@@ -8412,6 +8515,8 @@ nodeDriver:
       template: "Deploy from template: Data Center"
       vm: "Clone an existing virtual machine"
       legacy: Install from boot2docker ISO (Legacy)
+    contentLibarary:
+      label: Content library
     access:
       title: 1. Account Access
       detail: Configure where to find the VCenter or ESXi server
@@ -8464,8 +8569,13 @@ nodeDriver:
       placeholder: e.g. http://my_host/template.yml
     library:
       label: Library
+      template: Library template
       placeholder: dsl_linux_v4-4-10.ova
     schedulingSection: Scheduling
+    vm:
+      label: Virtual machine
+    template:
+      label: Template
     dataCenter:
       label: Data Center
       placeholder: "e.g. datacenter_name"
@@ -8795,6 +8905,7 @@ orchestrationWelcome:
     title: Enhanced with Kubernetes
 
 pageFooter:
+  ariaLabel: About Rancher
   notARelease: (Not a Release)
   help: 'Help & Docs'
   issues: File an Issue
@@ -9353,6 +9464,9 @@ nav:
 ##############################
 # Resource Actions
 ##############################
+actionMenu:
+  ariaLabel: Select an action below
+  noActions: No actions available
 action:
   activate: Activate
   addContainer: Deploy Pod
@@ -10013,3 +10127,11 @@ selectValueCheck:
       =1 {Please select a new value. The following is no longer valid:}
       other {Please select new values. The following are no longer valid:}
     }
+
+noInternetExplorer:
+  header: "Sorry, IE and Edge are not supported."
+
+timeDuration:
+  hour: H
+  minute: M
+  second: S

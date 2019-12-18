@@ -20,8 +20,8 @@
           {{/dd.trigger}}
 
           {{#dd.content}}
-            <li><a {{action "changeProtocol" "tcp"}}>TCP</a></li>
-            <li><a {{action "changeProtocol" "udp"}}>UDP</a></li>
+            <li><a {{action "changeProtocol" "tcp"}}>{{t "generic.tcp"}}</a></li>
+            <li><a {{action "changeProtocol" "udp"}}>{{t "generic.udp"}}</a></li>
           {{/dd.content}}
 
         {{/basic-dropdown}}
@@ -57,7 +57,7 @@
   </div>
 
   <div>
-    <span class="mr-10">Log Severity:</span>
+    <span class="mr-10">{{t "loggingPage.syslog.logSeverityLabel"}}:</span>
     {{#each severities as |item|}}
       <label class="mr-10 text-capitalize">
         {{radio-button selection=config.severity value=item.value }}

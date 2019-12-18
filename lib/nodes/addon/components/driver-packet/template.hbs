@@ -98,7 +98,7 @@
             <select class="form-control" onchange={{action (mut config.plan) value="target.value"}}>
               {{#each planChoices as |choice|}}
                 <option value={{choice.slug}} selected={{eq config.plan choice.slug}}>
-                  {{choice.name}} (${{choice.pricing.hour}}/hr)
+                  {{choice.name}} {{t "nodeDriver.packet.pricePerHour" price=choice.pricing.hour}}
                 </option>
               {{/each}}
             </select>

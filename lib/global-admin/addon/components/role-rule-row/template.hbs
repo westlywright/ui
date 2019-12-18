@@ -18,7 +18,7 @@
 <td class="pt-5 pb-5">
   {{#if (and readOnly rule.nonResourceURLs)}}
     <span class="text-muted">
-      Non-Resource URL: {{join-array rule.nonResourceURLs}}
+      {{t "rolesPage.row.nonResource"}}: {{join-array rule.nonResourceURLs}}
     </span>
   {{else}}
     <InputOrDisplay

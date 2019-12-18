@@ -63,14 +63,14 @@
       </label>
       {{#input-or-display editable=editing value=path}}
         <div class="input-group">
-          <span class="input-group-addon bg-default">GET</span>
+          <span class="input-group-addon bg-default">{{t "formHealthCheck.path.protocol"}}</span>
           {{input
             type="text"
             classNames="form-control"
             placeholder=(t "formHealthCheck.path.placeholder")
             value=path
           }}
-          <span class="input-group-addon bg-default">HTTP/1.1</span>
+          <span class="input-group-addon bg-default">{{t "formHealthCheck.path.transfer"}}</span>
         </div>
       {{/input-or-display}}
     </div>

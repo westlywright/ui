@@ -61,9 +61,9 @@
       <div class="col span-6">
         <div style="margin-top: 34px;">
           <label>{{t "loggingPage.elasticsearch.indexPatterns.dateFormat"}}</label>
-          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY-MM-DD"}} YYYY-MM-DD</label>
-          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY-MM"}} YYYY-MM</label>
-          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY"}} YYYY</label>
+          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY-MM-DD"}} {{t "loggingPage.elasticsearch.indexPatterns.date.yearMonthDay"}}</label>
+          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY-MM"}} {{t "loggingPage.elasticsearch.indexPatterns.date.yearMonth"}}</label>
+          <label class="mr-10">{{radio-button selection=config.dateFormat value="YYYY"}} {{t "loggingPage.elasticsearch.indexPatterns.date.year"}}</label>
         </div>
       </div>
     </div>

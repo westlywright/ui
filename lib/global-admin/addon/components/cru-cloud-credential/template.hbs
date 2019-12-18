@@ -50,7 +50,7 @@
             {{t "nodeDriver.amazonec2.region.label"}}{{field-required}}
           </label>
           <select class="form-control" onchange={{action (mut region) value="target.value"}}>
-            <option value="" selected={{eq region choice}}>Select a region</option>
+            <option value="" selected={{eq region choice}}>{{t "modalAddCloudKey.amazonec2.region.select"}}</option>
             {{#each regionChoices as |choice|}}
               <option value={{choice}} selected={{eq region choice}}>{{choice}}</option>
             {{/each}}

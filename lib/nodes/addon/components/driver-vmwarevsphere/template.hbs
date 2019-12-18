@@ -38,7 +38,7 @@
         <label class="acc-label">
           {{t "nodeDriver.vmwarevsphere.dataCenter.label"}}
         </label>
-        <NewSelect 
+        <NewSelect
           @class="form-control"
           @useContentForDefaultValue={{true}}
           @content={{datacenterContent}}
@@ -56,7 +56,7 @@
         <label class="acc-label">
           {{t "nodeDriver.vmwarevsphere.pool.label"}}
         </label>
-        <NewSelect 
+        <NewSelect
           @class="form-control"
           @useContentForDefaultValue={{true}}
           @content={{resourcePoolContent}}
@@ -86,7 +86,7 @@
           </TooltipElement>
         </label>
         {{#if config.useDataStoreCluster}}
-          <NewSelect 
+          <NewSelect
             @class="form-control"
             @useContentForDefaultValue={{true}}
             @content={{dataStoreClusterContent}}
@@ -97,7 +97,7 @@
           </p>
           <SelectValueCheck @values={{config.datastoreCluster}} @options={{dataStoreClusterContent}} />
         {{else}}
-          <NewSelect 
+          <NewSelect
             @class="form-control"
             @useContentForDefaultValue={{true}}
             @content={{dataStoreContent}}
@@ -113,7 +113,7 @@
         <label class="acc-label">
           {{t "nodeDriver.vmwarevsphere.folder.label"}}
         </label>
-        <NewSelect 
+        <NewSelect
           @class="form-control"
           @useContentForDefaultValue={{true}}
           @content={{folderContent}}
@@ -131,7 +131,7 @@
         <label class="acc-label">
           {{t "nodeDriver.vmwarevsphere.host.label"}}
         </label>
-        <NewSelect 
+        <NewSelect
           @class="form-control"
           @useContentForDefaultValue={{true}}
           @content={{hostContent}}
@@ -225,7 +225,7 @@
             </label>
             {{input
               type="text"
-              value=config.boot2dockerUrl 
+              value=config.boot2dockerUrl
               classNames="form-control"
               placeholder=(t "nodeDriver.vmwarevsphere.boot2dockerUrl.placeholder")
             }}
@@ -234,7 +234,7 @@
       {{#if showContentLibrary}}
           <div class="col span-4">
               <label class="acc-label">
-                {{t "nodeDriver.vmwarevsphere.contentLibrary"}}
+                {{t "nodeDriver.vmwarevsphere.contentLibrary.label"}}:
               </label>
               <NewSelect
                 @useContentForDefaultValue={{true}}
@@ -244,7 +244,7 @@
           </div>
           <div class="col span-4">
             <label class="acc-label">
-              {{t "nodeDriver.vmwarevsphere.libraryTemplate"}}
+              {{t "nodeDriver.vmwarevsphere.library.template"}}:
             </label>
             <SearchableSelect
               @content={{libraryTemplateContent}}
@@ -255,7 +255,7 @@
       {{#if showVirtualMachine}}
             <div class="col span-6">
               <label class="acc-label">
-                {{t "nodeDriver.vmwarevsphere.virtualMachine"}}
+                {{t "nodeDriver.vmwarevsphere.vm.label"}}:
               </label>
               <SearchableSelect
                 @content={{virtualMachineContent}}
@@ -266,7 +266,7 @@
       {{#if showTemplate}}
           <div class="col span-6">
             <label class="acc-label">
-              {{t "nodeDriver.vmwarevsphere.template"}}
+              {{t "nodeDriver.vmwarevsphere.template.label"}}:
             </label>
             <SearchableSelect
               @content={{templateContent}}
@@ -284,7 +284,7 @@
           </label>
           {{input
             type="text"
-            value=config.cloudinit 
+            value=config.cloudinit
             classNames="form-control"
             placeholder=(t "nodeDriver.vmwarevsphere.cloudinit.placeholder")
           }}
