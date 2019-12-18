@@ -3659,7 +3659,7 @@ clusterNew:
       placeholder: e.g. 120
     masterNum:
       label: Master Nodes Count
-      detail: 3
+      detail: "3"
       help: The count of master nodes will be launched in this Kubernetes cluster
     numOfNodes:
       label: Worker Nodes Count
