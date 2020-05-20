@@ -1,5 +1,5 @@
 import { inject as service } from '@ember/service';
-import { get } from '@ember/object';
+import { get, set } from '@ember/object';
 import { alias } from '@ember/object/computed';
 import Component from '@ember/component';
 import ModalBase from 'shared/mixins/modal-base';
@@ -12,14 +12,25 @@ export default Component.extend(ModalBase, {
   layout,
   classNames: ['large-modal'],
 
-  selection: {},
+  selection: null,
 
   resources: alias('modalService.modalOpts.resources'),
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'selection', {});
+  },
+
 
   actions: {
     drain() {
       const nodeDrainInput = { ...get(this, 'selection') };
       const resources = get(this, 'resources').slice();
+
+      if (nodeDrainInput.deleteLocalData && nodeDrainInput.deleteLocalData === 'true') {
+        set(nodeDrainInput, 'force', 'true');
+      }
 
       eachLimit(resources, 5, (resource, cb) => {
         if ( !resource ) {
