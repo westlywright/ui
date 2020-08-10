@@ -735,7 +735,7 @@
               </div>
 
               <div class="col span-3 offset-1">
-                <label class="acc-label">
+                <label class="acc-label" for="s3-backup-config-secretkey">
                   {{t "clusterNew.rke.etcd.backupConfig.secretKey.label"}}
                   {{#if clusterTemplateCreate}}
                     <ClusterTemplateOverrideToggle
@@ -758,8 +758,10 @@
                      value=config.services.etcd.backupConfig.s3BackupConfig.secretKey
                   }}
                     {{input
+                      id="s3-backup-config-secretkey"
+                      name="s3-backup-config-secretkey"
+                      autocomplete="off"
                       type="password"
-                      name="password"
                       classNames="form-control"
                       placeholder=(t "clusterNew.rke.etcd.backupConfig.secretKey.placeholder")
                       value=config.services.etcd.backupConfig.s3BackupConfig.secretKey

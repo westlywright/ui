@@ -138,13 +138,15 @@
         @applyClusterTemplate={{applyClusterTemplate}}
       >
         {{#input-or-display
-           id="cru-private-registry-password"
            editable=(not-eq mode "view")
            obfuscate=true
            value=privateRegistry.password
         }}
           {{input
+            auto-complete="off"
             class="conceal input-sm"
+            id="cru-private-registry-password"
+            name="cru-private-registry-password"
             type="password"
             value=privateRegistry.password
           }}
@@ -227,6 +229,7 @@
              value=reg.password
           }}
             {{input
+              autocomplete="off"
               class="conceal input-sm"
               type="password"
               value=reg.password

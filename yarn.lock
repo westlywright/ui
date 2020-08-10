@@ -5222,10 +5222,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codemirror@~5.15.0:
-  version "5.15.2"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.15.2.tgz#58b3dc732c6d10d7aae806f4c7cdd56a9b87fe8f"
-  integrity sha1-WLPccyxtENeq6Ab0x83VapuH/o8=
+codemirror@5.23.0, codemirror@~5.15.0:
+  version "5.23.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.23.0.tgz#ac9b6b2e163a79e915b44cf0f43cd115cf6982dc"
+  integrity sha1-rJtrLhY6eekVtEzw9DzRFc9pgtw=
 
 collection-visit@^1.0.0:
   version "1.0.0"
